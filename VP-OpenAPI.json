@@ -1,0 +1,1279 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "VEHICLE-PROFILE-API",
+        "description": "This provides vehicle-profile-api services",
+        "version": "1"
+    },
+    "servers": [
+        {
+            "url": ""
+        }
+    ],
+    "paths": {
+        "/v2/vehicleProfiles/vin/replace": {
+            "put": {
+                "tags": [
+                    "vehicle-profile-controller-v-2"
+                ],
+                "summary": "PUT /v2/vehicleProfiles/vin/replace",
+                "description": " <br>vehicle-profile-controller-v-2-replaceVin<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "replaceVin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/VinReplaceRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1.0/vehicleProfiles/vin/replace": {
+            "put": {
+                "tags": [
+                    "vehicle-profile-controller"
+                ],
+                "summary": "PUT /v1.0/vehicleProfiles/vin/replace",
+                "description": " <br>vehicle-profile-controller-replaceVin-1<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "replaceVin-1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/VinReplaceRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1/vins/{vinId}/decode": {
+            "post": {
+                "tags": [
+                    "vin-decode-controller"
+                ],
+                "summary": "POST /v1/vins/{vinId}/decode",
+                "description": " <br>vin-decode-controller-decodeVin<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "decodeVin",
+                "parameters": [
+                    {
+                        "name": "vinId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "DEFAULT",
+                                "CODE_VALUE",
+                                "POSITION_MATCHER",
+                                "VEHICLE_SPECIFICATION"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "region",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "USA",
+                                "JAPAN",
+                                "INDONESIA",
+                                "THAILAND"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1/vehicleProfiles/filter": {
+            "post": {
+                "tags": [
+                    "vehicle-profile-controller-v-1"
+                ],
+                "summary": "POST /v1/vehicleProfiles/filter",
+                "description": " <br>vehicle-profile-controller-v-1-filter<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "filter",
+                "parameters": [
+                    {
+                        "name": "requestParams",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/VehicleProfileFilterRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1.0/vehicles/{vehicleId}/associate": {
+            "post": {
+                "tags": [
+                    "vehicles-controller"
+                ],
+                "summary": "POST /v1.0/vehicles/{vehicleId}/associate",
+                "description": " <br>vehicles-controller-associate<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "associate",
+                "parameters": [
+                    {
+                        "name": "vehicleId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1.0/vehicleProfiles": {
+            "get": {
+                "tags": [
+                    "vehicle-profile-controller"
+                ],
+                "summary": "GET /v1.0/vehicleProfiles/",
+                "description": " <br>vehicle-profile-controller-search-1<p style='color:red;'>SCOPE: [SelfManage]</p>",
+                "operationId": "search-1",
+                "parameters": [
+                    {
+                        "name": "searchParams",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "SelfManage"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "vehicle-profile-controller"
+                ],
+                "summary": "POST /v1.0/vehicleProfiles",
+                "description": " <br>vehicle-profile-controller-post<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/VehicleProfile"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1.0/vehicleProfiles/{id}/inventory": {
+            "post": {
+                "tags": [
+                    "vehicle-profile-controller"
+                ],
+                "summary": "POST /v1.0/vehicleProfiles/{id}/inventory",
+                "description": " <br>vehicle-profile-controller-updateInventory<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "updateInventory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Inventory"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v2/vehicles/{vehicleId}": {
+            "patch": {
+                "tags": [
+                    "vehicles-controller-v-2"
+                ],
+                "summary": "PATCH /v2/vehicles/{vehicleId}",
+                "description": " <br>vehicles-controller-v-2-update<p style='color:red;'>SCOPE: [AssociateMyselfToVehicle,SelfManage]</p>",
+                "operationId": "update",
+                "parameters": [
+                    {
+                        "name": "vehicleId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/VehicleProfile"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "AssociateMyselfToVehicle,SelfManage"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1.0/vehicles/{vehicleId}": {
+            "patch": {
+                "tags": [
+                    "vehicles-controller"
+                ],
+                "summary": "PATCH /v1.0/vehicles/{vehicleId}",
+                "description": " <br>vehicles-controller-update-1<p style='color:red;'>SCOPE: [AssociateMyselfToVehicle,SelfManage]</p>",
+                "operationId": "update-1",
+                "parameters": [
+                    {
+                        "name": "vehicleId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/VehicleProfile"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "AssociateMyselfToVehicle,SelfManage"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1.0/vehicleProfiles/{id}": {
+            "patch": {
+                "tags": [
+                    "vehicle-profile-controller"
+                ],
+                "summary": "PATCH /v1.0/vehicleProfiles/{vehicleId}",
+                "description": " <br>vehicle-profile-controller-update-1<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "update-1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/VehicleProfile"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v2/vehicles": {
+            "get": {
+                "tags": [
+                    "vehicles-controller-v-2"
+                ],
+                "summary": "GET /v2/vehicles",
+                "description": " <br>vehicles-controller-v-2-search<p style='color:red;'>SCOPE: [AssociateMyselfToVehicle,SelfManage]</p>",
+                "operationId": "search",
+                "parameters": [
+                    {
+                        "name": "searchParams",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "AssociateMyselfToVehicle,SelfManage"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v2/users/{userId}/associatedVehicles": {
+            "get": {
+                "tags": [
+                    "user-controller-v-2"
+                ],
+                "summary": "GET /v2/users/{userId}/associatedVehicles",
+                "description": " <br>user-controller-v-2-getAssociatedVehicles<p style='color:red;'>SCOPE: [SelfManage,VehicleProfile]</p>",
+                "operationId": "getAssociatedVehicles",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pageNumber",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortby",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "orderby",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "SelfManage,VehicleProfile"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1.0/vehicles": {
+            "get": {
+                "tags": [
+                    "vehicles-controller"
+                ],
+                "summary": "GET /v1.0/vehicles",
+                "description": " <br>vehicles-controller-search-1<p style='color:red;'>SCOPE: [AssociateMyselfToVehicle,SelfManage]</p>",
+                "operationId": "search-1",
+                "parameters": [
+                    {
+                        "name": "searchParams",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "AssociateMyselfToVehicle,SelfManage"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1.0/users/{userId}/associatedVehicles": {
+            "get": {
+                "tags": [
+                    "user-controller"
+                ],
+                "summary": "GET /v1.0/users/{userId}/associatedVehicles",
+                "description": " <br>user-controller-getAssociatedVehicles-1<p style='color:red;'>SCOPE: [SelfManage,VehicleProfile]</p>",
+                "operationId": "getAssociatedVehicles-1",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "SelfManage,VehicleProfile"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1.0/associatedVehicles": {
+            "get": {
+                "tags": [
+                    "user-associated-vehicles-controller"
+                ],
+                "summary": "GET /v1.0/associatedVehicles",
+                "description": " <br>user-associated-vehicles-controller-getAssociatedVehicles-1<p style='color:red;'>SCOPE: [SelfManage]</p>",
+                "operationId": "getAssociatedVehicles-1",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "SelfManage"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "VinReplaceRequest": {
+                "type": "object",
+                "properties": {
+                    "deviceId": {
+                        "type": "string"
+                    },
+                    "vin": {
+                        "type": "string"
+                    }
+                }
+            },
+            "VehicleProfileFilterRequest": {
+                "type": "object",
+                "properties": {
+                    "vin": {
+                        "type": "string"
+                    }
+                }
+            },
+            "TermsAndConditions": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "countryCode": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "lastAcceptedOn": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "endOfAcceptance": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "offset": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "User": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "tc": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "#/components/schemas/TermsAndConditions"
+                        }
+                    },
+                    "pp": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "#/components/schemas/TermsAndConditions"
+                        }
+                    },
+                    "createdOn": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedOn": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "Application": {
+                "type": "object",
+                "properties": {
+                    "applicationId": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    }
+                }
+            },
+            "AuthorizedPartner": {
+                "type": "object",
+                "properties": {
+                    "partnerId": {
+                        "type": "string"
+                    },
+                    "serviceClaims": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "#/components/schemas/ServiceClaim"
+                        }
+                    }
+                }
+            },
+            "Capabilities": {
+                "type": "object",
+                "properties": {
+                    "services": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Application"
+                        }
+                    }
+                }
+            },
+            "Ecu": {
+                "type": "object",
+                "properties": {
+                    "swVersion": {
+                        "type": "string"
+                    },
+                    "hwVersion": {
+                        "type": "string"
+                    },
+                    "partNumber": {
+                        "type": "string"
+                    },
+                    "os": {
+                        "type": "string"
+                    },
+                    "screenSize": {
+                        "type": "string"
+                    },
+                    "manufacturer": {
+                        "type": "string"
+                    },
+                    "ecuType": {
+                        "type": "string"
+                    },
+                    "serialNo": {
+                        "type": "string"
+                    },
+                    "clientId": {
+                        "type": "string"
+                    },
+                    "capabilities": {
+                        "$ref": "#/components/schemas/Capabilities"
+                    },
+                    "provisionedServices": {
+                        "$ref": "#/components/schemas/ProvisionedServices"
+                    },
+                    "inventory": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "$ref": "#/components/schemas/InventoryScomo"
+                            }
+                        }
+                    }
+                }
+            },
+            "Event": {
+                "type": "object",
+                "properties": {
+                    "eventId": {
+                        "type": "string"
+                    },
+                    "eventDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "lastReceivedOn": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "InventoryScomo": {
+                "type": "object",
+                "properties": {
+                    "scomo_id": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ModemInfo": {
+                "type": "object",
+                "properties": {
+                    "eid": {
+                        "type": "string"
+                    },
+                    "iccid": {
+                        "type": "string"
+                    },
+                    "imei": {
+                        "type": "string"
+                    },
+                    "msisdn": {
+                        "type": "string"
+                    },
+                    "imsi": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ProvisionedServices": {
+                "type": "object",
+                "properties": {
+                    "services": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Application"
+                        }
+                    }
+                }
+            },
+            "SaleAttributes": {
+                "type": "object",
+                "properties": {
+                    "dealerCode": {
+                        "type": "string"
+                    },
+                    "saleDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "eventType": {
+                        "type": "string"
+                    },
+                    "eventDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "warrantyStartDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "marketCode": {
+                        "type": "string"
+                    },
+                    "salesChannel": {
+                        "type": "string"
+                    },
+                    "customerSegment": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ServiceClaim": {
+                "type": "object",
+                "properties": {
+                    "start": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "expire": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "VehicleAttributes": {
+                "type": "object",
+                "properties": {
+                    "make": {
+                        "type": "string"
+                    },
+                    "model": {
+                        "type": "string"
+                    },
+                    "marketingColor": {
+                        "type": "string"
+                    },
+                    "baseColor": {
+                        "type": "string"
+                    },
+                    "modelYear": {
+                        "type": "string"
+                    },
+                    "destinationCountry": {
+                        "type": "string"
+                    },
+                    "engineType": {
+                        "type": "string"
+                    },
+                    "bodyStyle": {
+                        "type": "string"
+                    },
+                    "bodyType": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "trim": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "fuelType": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "VehicleCapabilities": {
+                "type": "object",
+                "properties": {
+                    "sourceType": {
+                        "type": "string"
+                    },
+                    "pids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "useCases": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "VehicleProfile": {
+                "type": "object",
+                "properties": {
+                    "schemaVersion": {
+                        "type": "string",
+                        "enum": [
+                            "1.0",
+                            "1.1",
+                            "1.2",
+                            "1.3",
+                            "1.4",
+                            "1.5",
+                            "1.6",
+                            "1.7",
+                            "1.8",
+                            "1.9",
+                            "2.0",
+                            "2.2",
+                            "2.3",
+                            "2.4",
+                            "2.5",
+                            "2.6",
+                            "2.7",
+                            "2.8",
+                            "2.9",
+                            "3.0",
+                            "3.1",
+                            "3.2",
+                            "3.3",
+                            "3.4",
+                            "3.5",
+                            "3.6",
+                            "3.7",
+                            "3.8",
+                            "3.9",
+                            "4.0",
+                            "4.1",
+                            "4.2",
+                            "4.3",
+                            "4.4",
+                            "4.5",
+                            "4.6",
+                            "4.7",
+                            "4.8",
+                            "4.9",
+                            "5.0",
+                            "5.1",
+                            "5.2",
+                            "5.3",
+                            "5.4",
+                            "5.5",
+                            "5.6",
+                            "5.7",
+                            "5.8",
+                            "5.9",
+                            "6.0",
+                            "6.1",
+                            "6.2",
+                            "6.3",
+                            "6.4",
+                            "6.5",
+                            "6.6",
+                            "6.7",
+                            "6.8",
+                            "6.9",
+                            "7.0",
+                            "7.1",
+                            "7.2",
+                            "7.3",
+                            "7.4",
+                            "7.5",
+                            "7.6",
+                            "7.7",
+                            "7.8",
+                            "7.9",
+                            "8.0",
+                            "8.1",
+                            "8.2",
+                            "8.3",
+                            "8.4",
+                            "8.5",
+                            "8.6",
+                            "8.7",
+                            "8.8",
+                            "8.9",
+                            "9.0",
+                            "9.1",
+                            "9.2",
+                            "9.3",
+                            "9.4",
+                            "9.5",
+                            "9.6",
+                            "9.7",
+                            "9.8",
+                            "9.9"
+                        ]
+                    },
+                    "vin": {
+                        "type": "string"
+                    },
+                    "vehicleId": {
+                        "type": "string"
+                    },
+                    "createdOn": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedOn": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "productionDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "soldRegion": {
+                        "type": "string"
+                    },
+                    "saleDate": {
+                        "type": "string"
+                    },
+                    "vehicleAttributes": {
+                        "$ref": "#/components/schemas/VehicleAttributes"
+                    },
+                    "authorizedUsers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/User"
+                        }
+                    },
+                    "modemInfo": {
+                        "$ref": "#/components/schemas/ModemInfo"
+                    },
+                    "vehicleArchType": {
+                        "type": "string"
+                    },
+                    "ecus": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "#/components/schemas/Ecu"
+                        }
+                    },
+                    "dummy": {
+                        "type": "boolean"
+                    },
+                    "events": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "#/components/schemas/Event"
+                        }
+                    },
+                    "customParams": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "vehicleCapabilities": {
+                        "$ref": "#/components/schemas/VehicleCapabilities"
+                    },
+                    "saleAttributes": {
+                        "$ref": "#/components/schemas/SaleAttributes"
+                    },
+                    "eolValidationInProgress": {
+                        "type": "boolean"
+                    },
+                    "blockEnrollment": {
+                        "type": "boolean"
+                    },
+                    "authorizedPartners": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "#/components/schemas/AuthorizedPartner"
+                        }
+                    },
+                    "epiddbChecksum": {
+                        "type": "string"
+                    },
+                    "connectedPlatform": {
+                        "type": "string"
+                    },
+                    "lastUpdatedTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "Inventory": {
+                "type": "object",
+                "properties": {
+                    "inventoryEcuMap": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "#/components/schemas/InventoryEcu"
+                        }
+                    },
+                    "inventoryversion": {
+                        "type": "string"
+                    },
+                    "vin": {
+                        "type": "string"
+                    },
+                    "timestamp": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "campaignid": {
+                        "type": "string"
+                    }
+                }
+            },
+            "InventoryEcu": {
+                "type": "object",
+                "properties": {
+                    "inventoryScomoMap": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "$ref": "#/components/schemas/InventoryScomo"
+                            }
+                        }
+                    },
+                    "partnumber": {
+                        "type": "string"
+                    },
+                    "hardware": {
+                        "$ref": "#/components/schemas/InventoryEcuHardware"
+                    }
+                }
+            },
+            "InventoryEcuHardware": {
+                "type": "object",
+                "properties": {
+                    "version": {
+                        "type": "string"
+                    },
+                    "serialnumber": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
