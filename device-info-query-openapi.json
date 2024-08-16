@@ -1,0 +1,1074 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "DEVICEINFOQUERY-API",
+        "description": "This provides deviceinfoquery-api services",
+        "version": "1"
+    },
+    "servers": [
+        {
+            "url": "https://api-gateway3.poc.opensourceharman.com"
+        }
+    ],
+    "paths": {
+        "/v1/devices/update": {
+            "put": {
+                "tags": [
+                    "device-controller"
+                ],
+                "summary": "PUT /v1/devices/update",
+                "description": " <br>device-controller-updateDevice<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "updateDevice",
+                "parameters": [
+                    {
+                        "name": "user-id",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeviceUpdateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1/devices/state": {
+            "put": {
+                "tags": [
+                    "device-controller"
+                ],
+                "summary": "PUT /v1/devices/state",
+                "description": " <br>device-controller-changeDeviceState<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "changeDeviceState",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StateChange"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v3/devices/create": {
+            "post": {
+                "tags": [
+                    "device-controller"
+                ],
+                "summary": "POST /v3/devices/create",
+                "description": " <br>device-controller-createDevicesV3<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "createDevicesV3",
+                "parameters": [
+                    {
+                        "name": "user-id",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/DeviceFactoryDataDto"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v2/devices/create": {
+            "post": {
+                "tags": [
+                    "device-controller"
+                ],
+                "summary": "POST /v2/devices/create",
+                "description": " <br>device-controller-createDevicesV2<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "createDevicesV2",
+                "parameters": [
+                    {
+                        "name": "user-id",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/DeviceFactoryDataDto"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1/devices/create": {
+            "post": {
+                "tags": [
+                    "device-controller"
+                ],
+                "summary": "POST /v1/devices/create",
+                "description": " <br>device-controller-addDevices<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "addDevices",
+                "parameters": [
+                    {
+                        "name": "user-id",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/DeviceInfoFactoryDataRequest"
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v5/devices/details": {
+            "get": {
+                "tags": [
+                    "device-controller"
+                ],
+                "summary": "GET /v5/devices/details",
+                "description": " <br>device-controller-getAllFactoryDataWithSubscriptionStatus<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "getAllFactoryDataWithSubscriptionStatus",
+                "parameters": [
+                    {
+                        "name": "imei",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "serialnumber",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "deviceid",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vin",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortby",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "imei"
+                        }
+                    },
+                    {
+                        "name": "orderby",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "desc"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v4/devices/details": {
+            "get": {
+                "tags": [
+                    "device-controller"
+                ],
+                "summary": "GET /v4/devices/details",
+                "description": " <br>device-controller-getAllFactoryData<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "getAllFactoryData",
+                "parameters": [
+                    {
+                        "name": "imei",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortby",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "imei"
+                        }
+                    },
+                    {
+                        "name": "orderby",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "desc"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v3/devices/details": {
+            "get": {
+                "tags": [
+                    "device-controller"
+                ],
+                "summary": "GET v3/devices/details",
+                "description": " <br>device-controller-getAllFactoryDataV3<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "getAllFactoryDataV3",
+                "parameters": [
+                    {
+                        "name": "isdetailsrequired",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "true",
+                                "false"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "sortingorder",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "containslikefields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "containslikevalues",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortby",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rangefields",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "rangevalues",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v2/devices/details": {
+            "get": {
+                "tags": [
+                    "device-controller"
+                ],
+                "summary": "GET v2/devices/details",
+                "description": " <br>device-controller-getAllFactoryData-1<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "getAllFactoryData-1",
+                "parameters": [
+                    {
+                        "name": "isdetailsrequired",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "true",
+                                "false"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "asc",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "desc",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "imei",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "serialnumber",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1/devices/{imei}/states": {
+            "get": {
+                "tags": [
+                    "device-controller"
+                ],
+                "summary": "GET v1/devices/{imei}/states",
+                "description": " <br>device-controller-findAllDeviceStates<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "findAllDeviceStates",
+                "parameters": [
+                    {
+                        "name": "orderby",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "imei",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortby",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1/devices/details": {
+            "get": {
+                "tags": [
+                    "device-controller"
+                ],
+                "summary": "GET /v1/devices/details",
+                "description": " <br>device-controller-findFactoryData<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "findFactoryData",
+                "parameters": [
+                    {
+                        "name": "imei",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "serialnumber",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ssid",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "iccid",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "msisdn",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "imsi",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bssid",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "packageserialnumber",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "device-controller"
+                ],
+                "summary": "DELETE /v1/devices/details",
+                "description": " <br>device-controller-deleteDevice<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "deleteDevice",
+                "parameters": [
+                    {
+                        "name": "imei",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "serialnumber",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "user-id",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v1/bot-devices/{serialNumber}": {
+            "delete": {
+                "tags": [
+                    "device-controller"
+                ],
+                "summary": "DELETE /v1/bot-devices/{serialNumber}",
+                "description": " <br>device-controller-deleteBotCreatedDevice<p style='color:red;'>SCOPE: [IgniteSystem]</p>",
+                "operationId": "deleteBotCreatedDevice",
+                "parameters": [
+                    {
+                        "name": "serialNumber",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JwtAuthValidator": [
+                            "IgniteSystem"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "DeviceData": {
+                "type": "object",
+                "properties": {
+                    "factoryAdmin": {
+                        "type": "string"
+                    },
+                    "manufacturingDate": {
+                        "type": "string"
+                    },
+                    "model": {
+                        "type": "string"
+                    },
+                    "imei": {
+                        "type": "string"
+                    },
+                    "serialNumber": {
+                        "type": "string"
+                    },
+                    "platformVersion": {
+                        "type": "string"
+                    },
+                    "iccid": {
+                        "type": "string"
+                    },
+                    "ssid": {
+                        "type": "string"
+                    },
+                    "bssid": {
+                        "type": "string"
+                    },
+                    "msisdn": {
+                        "type": "string"
+                    },
+                    "imsi": {
+                        "type": "string"
+                    },
+                    "recordDate": {
+                        "type": "string"
+                    },
+                    "packageSerialNumber": {
+                        "type": "string"
+                    },
+                    "chassisNumber": {
+                        "type": "string"
+                    },
+                    "plant": {
+                        "type": "string"
+                    },
+                    "productionWeek": {
+                        "type": "string"
+                    },
+                    "vehicleModelYear": {
+                        "type": "string"
+                    },
+                    "vin": {
+                        "type": "string"
+                    },
+                    "friendlyName": {
+                        "type": "string"
+                    }
+                }
+            },
+            "DeviceUpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "currentValue": {
+                        "$ref": "#/components/schemas/DeviceData"
+                    },
+                    "replaceWith": {
+                        "$ref": "#/components/schemas/DeviceData"
+                    }
+                }
+            },
+            "StateChange": {
+                "type": "object",
+                "properties": {
+                    "factoryId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "state": {
+                        "type": "string",
+                        "enum": [
+                            "PROVISIONED",
+                            "READY_TO_ACTIVATE",
+                            "ACTIVE",
+                            "STOLEN",
+                            "FAULTY",
+                            "DEACTIVATED",
+                            "PROVISIONED_ALIVE"
+                        ]
+                    },
+                    "imei": {
+                        "type": "string"
+                    }
+                }
+            },
+            "DeviceFactoryDataDto": {
+                "type": "object",
+                "properties": {
+                    "manufacturingDate": {
+                        "type": "string"
+                    },
+                    "model": {
+                        "type": "string"
+                    },
+                    "imei": {
+                        "type": "string"
+                    },
+                    "serialNumber": {
+                        "type": "string"
+                    },
+                    "platformVersion": {
+                        "type": "string"
+                    },
+                    "iccid": {
+                        "type": "string"
+                    },
+                    "ssid": {
+                        "type": "string"
+                    },
+                    "bssid": {
+                        "type": "string"
+                    },
+                    "msisdn": {
+                        "type": "string"
+                    },
+                    "imsi": {
+                        "type": "string"
+                    },
+                    "recordDate": {
+                        "type": "string"
+                    },
+                    "packageSerialNumber": {
+                        "type": "string"
+                    },
+                    "vin": {
+                        "type": "string"
+                    },
+                    "chassisNumber": {
+                        "type": "string"
+                    },
+                    "plant": {
+                        "type": "string"
+                    },
+                    "productionWeek": {
+                        "type": "string"
+                    },
+                    "vehicleModelYear": {
+                        "type": "string"
+                    },
+                    "friendlyName": {
+                        "type": "string"
+                    },
+                    "deviceType": {
+                        "type": "string"
+                    },
+                    "region": {
+                        "type": "string"
+                    }
+                }
+            },
+            "DeviceInfoFactoryDataRequest": {
+                "type": "object",
+                "properties": {
+                    "manufacturingDate": {
+                        "type": "string"
+                    },
+                    "model": {
+                        "type": "string"
+                    },
+                    "imei": {
+                        "type": "string"
+                    },
+                    "serialNumber": {
+                        "type": "string"
+                    },
+                    "platformVersion": {
+                        "type": "string"
+                    },
+                    "iccid": {
+                        "type": "string"
+                    },
+                    "ssid": {
+                        "type": "string"
+                    },
+                    "bssid": {
+                        "type": "string"
+                    },
+                    "msisdn": {
+                        "type": "string"
+                    },
+                    "imsi": {
+                        "type": "string"
+                    },
+                    "recordDate": {
+                        "type": "string"
+                    },
+                    "packageSerialNumber": {
+                        "type": "string"
+                    },
+                    "vin": {
+                        "type": "string"
+                    },
+                    "chassisNumber": {
+                        "type": "string"
+                    },
+                    "plant": {
+                        "type": "string"
+                    },
+                    "productionWeek": {
+                        "type": "string"
+                    },
+                    "vehicleModelYear": {
+                        "type": "string"
+                    },
+                    "friendlyName": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
